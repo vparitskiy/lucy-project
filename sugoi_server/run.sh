@@ -1,0 +1,1 @@
+exec gunicorn -w 2 server:app -k uvicorn.workers.UvicornWorker -b 127.0.0.1:8899
