@@ -13,7 +13,7 @@ set_seed(42)
 
 
 def create_pipeline():
-    model_config = dict(pretrained_model_name_or_path="models/lucy-small")
+    model_config = dict(pretrained_model_name_or_path="train/lucy-base/checkpoint-2511")
 
     tokenizer = MT5Tokenizer.from_pretrained(**model_config)
 
@@ -63,7 +63,7 @@ def translate(sentence):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    # parser.add_argument("s", type=str, default="s")
+    parser.add_argument("s", type=str, default="s")
     parser.add_argument("--checkpoint", type=int)
 
     args = parser.parse_args()

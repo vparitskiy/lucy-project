@@ -57,5 +57,5 @@ def save_dataframe(
         encoding="utf-8",
         index=False,
         escapechar="`",
-        quoting=csv.QUOTE_MINIMAL,
+        quoting=csv.QUOTE_NONE,
     )

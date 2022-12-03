@@ -112,7 +112,7 @@ sudachipy_tokenizer = dictionary.Dictionary().create()
 re_katakana = re.compile(r"[\u30A0-\u30FF\u31F0-\u31FF]")
 
 
-def normalize_katakana(line):
+def _normalize_katakana(line):
     mode = tokenizer.Tokenizer.SplitMode.A
     tokens = [m for m in sudachipy_tokenizer.tokenize(line, mode)]
     new_tokens = []
@@ -125,7 +125,7 @@ def normalize_katakana(line):
     return new_line
 
 
-def normalize_ja(s, trans_full=False):
+def normalize_ja(s, trans_full=False, normalize_katakana=False):
     s = str(s)
     s = s.strip()
     if s.isdigit():
@@ -141,9 +141,11 @@ def normalize_ja(s, trans_full=False):
         trans = maketrans(".`~｡､･｢｣", "．｀〜。、・「」")
 
     s = s.translate(trans)
-    s = normalize_katakana(s)
     s = __remove_extra_spaces(s)
-    return normalize_katakana(s)
+
+    if normalize_katakana:
+        s = _normalize_katakana(s)
+    return s
 
 
 if __name__ == "__main__":

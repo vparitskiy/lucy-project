@@ -1,10 +1,10 @@
-python train.py --model_name_or_path 'models/lucy-small-checkpoint5' \
+python train.py --model_name_or_path 'models/lucy-base' \
   --do_train \
-  --num_train_epochs 10 \
+  --num_train_epochs 1 \
   --source_lang 'ja' \
   --target_lang 'en' \
-  --dataset_path 'dataset/data/train/datasets/checkpoint1' \
-  --output_dir 'train/lucy-small/checkpoint10/' \
+  --dataset_name 'dataset/load.py' \
+  --output_dir 'train/lucy-base/' \
   --logging_steps 50 \
   --save_strategy 'epoch' \
   --overwrite_output_dir True \
@@ -14,6 +14,6 @@ python train.py --model_name_or_path 'models/lucy-small-checkpoint5' \
   --tf32 True \
   --bf16 True \
   --overwrite_output_dir \
-  --per_device_train_batch_size=32 \
-  --max_source_length=100 \
-  --max_target_length=100
+  --per_device_train_batch_size=8 \
+  --max_source_length=128 \
+  --max_target_length=128

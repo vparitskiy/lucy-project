@@ -1,8 +1,6 @@
 import sys
 from pathlib import Path
 
-from utils.script_parsers.struct import mmap_io
-
 sys.path.append(str(Path(__file__).parent.parent.parent))
 import os.path
 import re
@@ -54,7 +52,7 @@ def main():
         post_process_en=post_en_row,
         pre_process_ja=pre_ja_row,
         post_process_ja=post_ja_row,
-        trans_full=True,
+        trans_full=False,
     )
 
 
